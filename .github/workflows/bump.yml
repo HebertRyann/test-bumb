@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'homologation'
 
 jobs:
   bump-version:
@@ -21,9 +22,9 @@ jobs:
         id: version-bump
         uses: 'phips28/gh-action-bump-version@master'
         with:
-          minor-wording:  'add,Adds,new'
-          major-wording:  'MAJOR,cut-major'
-          patch-wording:  'patch,fixes'
+          minor-wording:  'feat'
+          major-wording:  'refactor'
+          patch-wording:  'fix'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'cat package.json'
